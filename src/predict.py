@@ -2,6 +2,7 @@
 
 import joblib
 import numpy as np
+import pandas as pd
 from src.recommend import interpret_prediction, get_recommendation
 
 def predict_child():
@@ -18,8 +19,11 @@ def predict_child():
 
     bmi = weight / ((height/100)**2)
 
-    sample = np.array([[age, sex, weight, height, muac, hb, bmi]])
-    sample_scaled = scaler.transform(sample)
+    sample_df = pd.DataFrame(
+        [[age, sex, weight, height, muac, hb, bmi]],
+        columns=["age", "sex", "weight", "height", "muac", "hb", "bmi"]
+        )
+    sample_scaled = scaler.transform(sample_df)
 
     prediction = model.predict(sample_scaled)[0]
     probabilities = model.predict_proba(sample_scaled)[0]
