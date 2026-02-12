@@ -32,12 +32,12 @@ def predict_child():
 
     print("\n--- Assessment Report ---")
     print("Acute Malnutrition:", acute_text(acute_pred))
-    print("Stunting Risk:", "YES" if stunting_pred else "NO")
-    print("Anemia:", "YES" if anemia_flag else "NO")
+    print("Stunting Risk:", "Yes" if stunting_pred else "No")
+    print("Anemia:", "Yes" if anemia_flag else "No")
 
     print("\n--- Dietary Focus ---")
     for rec in build_recommendation(acute_pred, stunting_pred, anemia_flag):
-        print("✓", rec)
+        print(rec)
 
 
 if __name__ == "__main__":
