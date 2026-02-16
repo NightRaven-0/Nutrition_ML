@@ -1,1 +1,4 @@
-
+pandas 
+joblib
+scikit-learn
+nicegui
